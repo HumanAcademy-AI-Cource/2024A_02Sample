@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+  <html>
+    <head>
+      <title>見守りカメラ</title>
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <!-- ウェブフォントを使う設定 -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" />
+      <!-- OnsenUIのCSSを読み込む -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/onsenui@2.12.8/css/onsenui.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/onsenui@2.12.8/css/onsen-css-components.min.css" />
+      <link rel="stylesheet" href="./static/style.css" />
+    </head>
+
+    <body>
+      <!-- 縦画面で表示する内容 -->
+      <div id="portrait">
+        <ons-splitter>
+          <!-- サイドメニューを表示 -->
+          <ons-splitter-side width="200px" collapse side="left" id="menu">
+            <ons-page>
+              <ons-list>
+                <ons-list-item>
+                  <div class="center custom-font" style="font-size: 11px">【データ容量】<span id="data-usage"></span></div>
+                </ons-list-item>
+              </ons-list>
+            </ons-page>
+          </ons-splitter-side>
+
+          <ons-splitter-content id="content">
+            <ons-page>
+              <!-- アプリ名とボタンを表示 -->
+              <ons-toolbar>
+                <div class="left">
+                  <ons-toolbar-button onclick="document.getElementById('menu').open()">
+                    <ons-icon icon="md-menu" size="30px"></ons-icon>
+                  </ons-toolbar-button>
+                </div>
+
+                <div class="center custom-font">見守りカメラ</div>
+                <div class="right">
+                  <ons-toolbar-button>
+                    <ons-icon id="sound-icon" icon="md-volume-off" size="30px" onclick="updateSoundMode()"></ons-icon>
+                  </ons-toolbar-button>
+                </div>
+              </ons-toolbar>
+
+              <!-- 動体検出した画像を表示 -->
+              <div class="content content-flex custom-font">
+                <ons-card>
+                  <div class="camera-card">
+                    <img id="photo-box-portrait" width="100%" src="./static/no_image.png" />
+                    <p id="photo-info-portrait" class="camera-card-text custom-font">No Received</p>
+                  </div>
+
+                  <div class="character-box">
+                    <img class="left-image" src="./static/character.png" />
+                    <div class="speech-bubble custom-font">
+                      <p id="speech-bubble-text">No Received</p>
+                    </div>
+                  </div>
+                </ons-card>
+
+                <!-- 過去の画像を表示 -->
+                <div class="records">
+                  <ons-list id="photos-list"></ons-list>
+                </div>
+              </div>
+            </ons-page>
+          </ons-splitter-content>
+        </ons-splitter>
+      </div>
+
+      <!-- 横画面で表示する内容 -->
+      <div id="landscape">
+        <div class="content content-flex">
+          <div class="preview-card-landscape">
+            <img id="photo-box-landscape" src="./static/no_image.png" />
+            <p id="photo-info-landscape" class="camera-card-text custom-font">No Received</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OnsenUIのライブラリを読み込む -->
+      <script src="https://cdn.jsdelivr.net/npm/onsenui@2.12.8/js/onsenui.min.js"></script>
+      <!-- WebSocketのライブラリを読み込む -->
+      <script src="https://cdn.jsdelivr.net/npm/socket.io@4.5.4/client-dist/socket.io.min.js"></script>
+      <!-- サウンド再生のライブラリを読み込む -->
+      <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
+      <script src="./static/main.js"></script>
+    </body>
+  </html>
+</html>

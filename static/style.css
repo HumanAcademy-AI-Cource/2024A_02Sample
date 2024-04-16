@@ -1,0 +1,158 @@
+/* ------------------------------------------ */
+/* フォント指定のCSS */
+/* ------------------------------------------ */
+
+.custom-font {
+  font-family: "Mochiy Pop One", sans-serif;
+}
+
+/* ---------------------------------- */
+/* メインコンテンツのCSS */
+/* ---------------------------------- */
+
+body {
+  background-color: #333333;
+}
+
+.content-flex {
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-card {
+  position: relative;
+}
+
+.camera-card-text {
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+  padding: 2px 5px;
+  font-size: 11px;
+  background-color: #fff;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+.preview-card-landscape {
+  flex: 1;
+  overflow: hidden;
+  text-align: center;
+  background-color: #333333;
+}
+
+.preview-card-landscape img {
+  width: 100%;
+  height: 100vh;
+  height: -webkit-fill-available;
+  object-fit: contain;
+}
+
+.preview-card-landscape .camera-card-text {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  padding: 5px;
+  font: 11px "Mochiy Pop One";
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+/* ------------------------------------------ */
+/* キャラクタと吹き出しに関するCSS */
+/* ------------------------------------------ */
+
+.character-box {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.left-image {
+  width: 20%;
+  margin-right: 20px;
+}
+
+.speech-bubble {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e6d716;
+  margin-left: 10px;
+  padding: 20px 20px 20px 10px;
+  border-radius: 10px;
+}
+
+.speech-bubble:after {
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  position: absolute;
+  border-color: rgba(230, 215, 22, 0);
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+  border-left-width: 15px;
+  border-right-width: 15px;
+  margin-top: -10px;
+  border-right-color: #e6d716;
+  right: 100%;
+  top: 48%;
+}
+
+#speech-bubble-text {
+  font-size: 14px;
+}
+
+/* ------------------------------------------ */
+/* リスト表示に関するCSS */
+/* ------------------------------------------ */
+
+.records {
+  flex: 1;
+  overflow: scroll;
+  min-height: 50px;
+}
+
+.records-item {
+  padding: 0;
+}
+
+.records-item-left {
+  width: 30%;
+  padding: 0;
+}
+
+.records-item-left a {
+  line-height: 0;
+}
+
+.records-item-left img {
+  width: 100%;
+}
+
+.records-item-center {
+  width: 70%;
+  padding: 0;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  user-select: all;
+}
+
+.records-item-center::-webkit-scrollbar {
+  display: none;
+}
+
+.records-item-center p {
+  width: 100%;
+  font: normal 3vw "Mochiy Pop One";
+  text-align: center;
+  margin: 0;
+  margin-left: 10px;
+}
